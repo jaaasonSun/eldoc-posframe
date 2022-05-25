@@ -39,6 +39,18 @@
   :prefix "eldoc-posframe-"
   :group 'eldoc)
 
+(defcustom eldoc-posframe-poshandler 'posframe-poshandler-point-bottom-left-corner-upward
+  "Posframe poshandler for frame.")
+
+(defcustom eldoc-posframe-border-color "white"
+  "Posframe border color.")
+
+(defcustom eldoc-posframe-max-width 60
+  "Posframe max width.")
+
+(defcustom eldoc-posframe-max-height 60
+  "Posframe max width.")
+
 (defvar eldoc-posframe-buffer "*eldoc-posframe-buffer*"
   "The posframe buffer name use by eldoc-posframe.")
 
@@ -60,9 +72,12 @@
      eldoc-posframe-buffer
      :string (apply 'format format-string args)
      :background-color (face-background 'eldoc-posframe-background-face nil t)
-     :internal-border-width 5
+     :border-color eldoc-posframe-border-color
+     :internal-border-width 1
+     :max-width eldoc-posframe-max-width
+     :max-height eldoc-posframe-max-height
      :left-fringe 10
-     :poshandler 'posframe-poshandler-frame-top-right-corner)
+     :poshandler eldoc-posframe-poshandler)
     (dolist (hook eldoc-posframe-hide-posframe-hooks)
       (add-hook hook #'eldoc-posframe-hide-posframe nil t))))
 

@@ -8,6 +8,8 @@ around point either in the minibuffer or in the modeline.
 This package modifies Eldoc to display this documentation using
 a child frame.
 
+This fork adds custom variables for posframe display. 
+
 ## License
 
 Copyright (C) 2019 Eder Elorriaga
